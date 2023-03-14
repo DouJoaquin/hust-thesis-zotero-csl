@@ -126,7 +126,7 @@
     <layout>
       
       <text macro="author"/>
-      <text macro="title" prefix=" " suffix="."/>
+      <text macro="title" prefix="" suffix="."/>
       <choose>
         <if type="bill book graphic legislation motion_picture report song" match="any">
           <group suffix="." prefix=" " delimiter="">
@@ -221,7 +221,7 @@
           </group>
         </else-if>
         <else-if type="webpage post post-weblog" match="any">
-          <text variable="container-title" prefix=" " suffix="."/>
+          <text variable="container-title" prefix=" " suffix=","/>
         </else-if>
         <else-if type="speech">
           <group prefix=" " suffix=":">
@@ -235,7 +235,7 @@
               </else>
             </choose>
           </group>
-          <group delimiter="; " prefix=" " suffix=".">
+          <group delimiter="," prefix=" " suffix=".">
             <text variable="event"/>
             <group>
               <date delimiter=" " variable="issued">
@@ -248,9 +248,9 @@
           </group>
         </else-if>
         <else-if type="thesis" match="any">
-          <group delimiter=". " prefix=" " suffix=".">
+          <group delimiter="." prefix=" " suffix=".">
             <text variable="genre"/>
-            <group delimiter="; ">
+            <group delimiter=",">
               <text variable="publisher"/>
               <date date-parts="year" form="text" variable="issued"/>
             </group>
@@ -258,9 +258,9 @@
         </else-if>
         <else>
           <text macro="editor" prefix=" " suffix="."/>
-          <group prefix=" " suffix=".">
-            <text variable="container-title" form="short" strip-periods="true" suffix="."/>
-            <group delimiter=";" prefix=" ">
+          <group prefix="" suffix=".">
+            <text variable="container-title" form="short" strip-periods="true" prefix=" " suffix=","/>
+            <group delimiter="," prefix="">
               <choose>
                 <if variable="issue volume" match="any">
                   <date variable="issued">
